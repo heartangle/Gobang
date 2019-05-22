@@ -4,6 +4,7 @@
 #include<string>
 #include<vector>
 #include<pthread.h>
+#include<stdlib.h>
 #include"PlayerManager.hpp"
 #include"RoomManager.hpp"
 
@@ -194,6 +195,12 @@ public:
     char Judge(uint32_t& room_id, uint32_t& id)
     {
         return rm.Judge(room_id, id);
+    }
+    int SetNumber()
+    {
+        LOG(INFO, "生成随机数成功！");
+        srand((unsigned int)(time(NULL)));
+        return (rand() % 1000) + 1;
     }
     void InitHall()
     {

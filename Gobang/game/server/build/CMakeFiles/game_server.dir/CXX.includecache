@@ -4989,6 +4989,8 @@ vector
 -
 pthread.h
 -
+stdlib.h
+-
 PlayerManager.hpp
 /home/tom/Gobang/game/server/PlayerManager.hpp
 RoomManager.hpp

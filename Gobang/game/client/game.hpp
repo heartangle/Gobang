@@ -211,7 +211,45 @@ char Judge(string& ip, int& port, uint32_t& room_id, uint32_t& id)
 		std::cout << e.what() << std::endl;
 	}
 }
-void PlayGame(string& ip, int& port, uint32_t& id)
+int GetNumber(string& ip, int& port)
+{
+	try {
+		rpc_client client(ip, port);//这里使用的是短链接，因为rpc_client是在栈上开辟的
+		bool r = client.connect();
+		if (!r) {
+			std::cout << "connect timeout" << std::endl;
+			return 3;
+		}
+        return client.call<int>("RpcGetNumber");
+	}
+	catch (const std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+void PlayTwoGame(string& ip, int& port)
+{
+    cout<<"欢迎来到猜数字游戏！"<<endl;
+    cout<<"服务器将随即生成一个1-1000之内的数字哦！"<<endl;
+    cout<<"游戏开始喽！"<<endl;
+    int number = 500;
+    number = GetNumber(ip, port);
+    int ret = 0;
+    while(1){
+        cout<<"请输入一个数:>";
+        cin>>ret;
+        if(ret > number){
+            cout<<"猜大了！"<<endl;
+        }
+        else if(ret < number){
+            cout<<"猜小了！"<<endl;
+        }
+        else{
+            cout<<"恭喜你，猜对了！"<<endl;
+            break;
+        }   
+    }
+}
+void PlayOneGame(string& ip, int& port, uint32_t& id)
 {
     int x,y;
     char result = 'N';
@@ -267,22 +305,24 @@ void PlayGame(string& ip, int& port, uint32_t& id)
 }
 void Game(string& ip, int& port, uint32_t& id)
 {
-    int select = 0;
+    int game_select = 0;
     volatile bool quit = false;
     while(!quit)
     {
 
         cout<<"********************************"<<endl;
-        cout<<"***1、匹配          2、退出*****"<<endl;
+        cout<<"***1、五子棋      2、猜数字 ****"<<endl;
+        cout<<"***3、退出                  ****"<<endl;
         cout<<"********************************"<<endl;
         cout<<"请选择：";
-        cin>>select;
-        switch(select)
+        cin>>game_select;
+
+        switch(game_select)
         {
         case 1:
             {
                 if(Match(ip, port, id)){
-                    PlayGame(ip, port, id);
+                    PlayOneGame(ip, port, id);
                 }
                 else{
                     cout<<"匹配失败，请重新在试！"<<endl;
@@ -290,6 +330,11 @@ void Game(string& ip, int& port, uint32_t& id)
             }
             break;
         case 2:
+            {
+                PlayTwoGame(ip, port);
+            }       
+            break;
+        case 3:
             quit = true;
             break;
         default:

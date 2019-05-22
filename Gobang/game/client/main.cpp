@@ -40,8 +40,8 @@ int main(int argc, char* argv[])
             else{
                 cout<<"登录失败，退出码："<<result<<endl;
             }
-            break;
             }
+            break;
         case 2:
             {
             Register(ip, port, name, passwd, id);

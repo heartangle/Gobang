@@ -53,6 +53,10 @@ bool RpcPopMatchPool(connection* conn, uint32_t id)
 {
     return GameHall.PopIdMatchPool(id);
 }
+int RpcGetNumber(connection* conn)
+{
+    return GameHall.SetNumber();
+}
 int main() {
 	rpc_server server(9001, 4);//4指的是的底层进行IO服务线程数
     LOG(INFO, "初始化服务器成功......");
@@ -68,6 +72,7 @@ int main() {
     server.register_handler("RpcStep", RpcStep);
     server.register_handler("RpcJudge", RpcJudge);
     server.register_handler("RpcPopMatchPool", RpcPopMatchPool);
+    server.register_handler("RpcGetNumber", RpcGetNumber);
     LOG(INFO, "注册所有的方法完毕......");
 	server.run();
     LOG(INFO, "服务器成功启动......");

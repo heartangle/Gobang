@@ -270,7 +270,7 @@ void PlayOneGame(string& ip, int& port, uint32_t& id)
         }
         if(!IsMyTurn(ip, port, room_id, id)){
             cout<<"对方正在思考......"<<endl;
-            sleep(3);
+            sleep(1);
             continue;
         }
         cout<<"请输入你的落子位置：>";

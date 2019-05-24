@@ -22,7 +22,7 @@ cmake安装或升级链接：https://blog.csdn.net/fancyler/article/details/7800
 
 下载和编译
 ---
-git clone 
+git clone https://github.com/heartangle/Gobang.git
 
 客户端：
 cd Gobang/game/client

@@ -12,10 +12,15 @@
 依赖软件
 ---
 要编译运行当前程序需要先检查或者升级一下自己的Linux的环境。
+
 1、需要使用cmake 3.7以上的版本进行mkaefile的生成。
+
 2、需要安装boost库，具体编译的时候，错误信息会提示
+
 3、gcc7.0版本以上
+
 cmake安装或升级链接：https://blog.csdn.net/fancyler/article/details/78009812
+
 安装高版本gcc链接:https://www.jianshu.com/p/76fb9b6a781b
 
 下载和编译

@@ -24,14 +24,20 @@ cmake安装或升级链接：https://blog.csdn.net/fancyler/article/details/7800
 
 客户端
 #cd Gobang/game/client
+
 #mkdir build
+
 #cmake ..
+
 #make //生成可执行程序game_client
 
 服务器端
 #cd Gobang/game/server
+
 #mkdir build
-#cmake //
+
+#cmake ..
+
 #make //生成可执行成程序game_server
 
 运行客户端和服务器

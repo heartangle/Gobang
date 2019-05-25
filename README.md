@@ -20,27 +20,27 @@ cmake安装或升级链接：https://blog.csdn.net/fancyler/article/details/7800
 
 下载和编译
 ---
-git clone https://github.com/heartangle/Gobang.git
+#git clone https://github.com/heartangle/Gobang.git
 
 客户端
--cd Gobang/game/client
-mkdir build
-cmake ..
-make //生成可执行程序game_client
+#cd Gobang/game/client
+#mkdir build
+#cmake ..
+#make //生成可执行程序game_client
 
 服务器端
-cd Gobang/game/server
-mkdir build
-cmake //
-make //生成可执行成程序game_server
+#cd Gobang/game/server
+#mkdir build
+#cmake //
+#make //生成可执行成程序game_server
 
 运行客户端和服务器
 ---
 1、先进到服务器目录下启动服务器。
-./game_server
+#./game_server
 
 2、在进到客户端目录下，启动客户端
-./game_client ip + port   //在server/main.cpp中默认端口号是9001，这是可以修改的，注意不要和知名端口号重复就好了。
+#./game_client ip + port   //在server/main.cpp中默认端口号是9001，这是可以修改的，注意不要和知名端口号重复就好了。
 
 3、接下里在客户端界面就可以玩游戏了。
 
